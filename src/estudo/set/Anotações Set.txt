@@ -1,0 +1,10 @@
+A classe Set é uma lista que não permite repetições e permite no
+máximo um elemento null. Ou seja, Set não permite e1.equals(e2) == true.
+Caso tente incluir dois elementos iguais, ele só colocará um deles e sua
+inserção é a princípio aleatória. Set não trabalha com index, então
+diferente da classe List que tem o metodo indexOf() Set não tem.
+É importante sobrescrever os metodos equals() e HashCode() quando estamos
+trabalhando com implementações onde no nome tem a palavra 'hash'. Um
+detalhe importe é que o TreeSet<> ele difere um pouco do Set, pois o primeiro
+compara e caso um atributo seja igual ao outro, ele não adiciona. O Set
+só rejeita caso todos os atributos sejam iguais.

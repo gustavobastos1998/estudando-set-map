@@ -3,4 +3,7 @@ framework. O Map permite colocar múltiplos elementos, tanto quanto
 variáveis primitivas como outros objetos. Cada elemento dentro do
 map tem uma chave e um valor, as chaves têm valores únicos, porém os
 valores podem se repetir. O TreeMap é ótimo para ordenação. O HashMap
-e o LinkedHashMap permitem chaves nulas, já a TreeMap não.
+e o LinkedHashMap permitem chaves nulas, já a TreeMap não. Assim como
+no Set, Map não trabalha com o conceito de índice, portanto não é
+inserido na ordem que é escrita no programa e não contém métodos como
+indexOf(). 

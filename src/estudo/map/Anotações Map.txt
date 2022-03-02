@@ -1,0 +1,6 @@
+O Map não extend da interface Colletion, porém esse faz parte do
+framework. O Map permite colocar múltiplos elementos, tanto quanto
+variáveis primitivas como outros objetos. Cada elemento dentro do
+map tem uma chave e um valor, as chaves têm valores únicos, porém os
+valores podem se repetir. O TreeMap é ótimo para ordenação. O HashMap
+e o LinkedHashMap permitem chaves nulas, já a TreeMap não.

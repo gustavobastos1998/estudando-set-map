@@ -1,3 +1,0 @@
-Faz parte do Collection<E> do java. Set não tem elementos repetidos.
-Set não permite que e1.equals(e2) seja true e permite que tenha no
-máximo um elemento null, apesar de ter aplicações que isso não será possível.

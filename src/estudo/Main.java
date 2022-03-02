@@ -1,5 +1,6 @@
 package estudo;
 
+import estudo.map.ClassMap;
 import estudo.set.ClassSet;
 
 public class Main {
@@ -7,5 +8,7 @@ public class Main {
         ClassSet cs = new ClassSet();
         cs.estudoMetodosSet();
         cs.ordenacaoSet();
+        ClassMap cm = new ClassMap();
+        cm.estudoMetodosMap();
     }
 }

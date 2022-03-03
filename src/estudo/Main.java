@@ -10,5 +10,6 @@ public class Main {
         cs.ordenacaoSet();
         ClassMap cm = new ClassMap();
         cm.estudoMetodosMap();
+        cm.ordenacaoMap();
     }
 }

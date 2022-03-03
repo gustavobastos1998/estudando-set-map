@@ -118,4 +118,110 @@ public class ClassMap {
         System.out.println();
         System.out.println("Confira se o dicionário está vazio: " + carros.isEmpty());
     }
+
+    public void ordenacaoMap() {
+        System.out.println();
+        System.out.println("===Ordem aleatoria===\n");
+        Map<String, Livro> livros = new HashMap<>();
+        inserirInfoMap(livros);
+        printInfoMap(livros);
+        System.out.println("===Ordem de inserção===\n");
+        Map<String, Livro> livros1 = new LinkedHashMap<>();
+        inserirInfoMap(livros1);
+        printInfoMap(livros1);
+        System.out.println("===Ordem alfabética dos autores===\n");
+        Map<String, Livro> livros2 = new TreeMap<>(livros);
+        printInfoMap(livros2);
+        System.out.println("===Ordem alfabética nome dos livros===\n");
+        Set<Map.Entry<String, Livro>> livros3 = new TreeSet<>(new ComparatorNome());
+        livros3.addAll(livros.entrySet());
+        printInfoSet(livros3);
+        System.out.println("===Ordem de acordo com a quantidade de páginas===\n");
+        Set<Map.Entry<String, Livro>> livros4 = new TreeSet<>(new ComparatorPaginas());
+        livros4.addAll(livros.entrySet());
+        printInfoSet(livros4);
+
+    }
+
+    private void printInfoSet(Set<Map.Entry<String, Livro>> s) {
+        for (Map.Entry<String, Livro> liv : s) {
+            System.out.println("Autor : " + liv.getKey());
+            System.out.println("Título do livro : " + liv.getValue().getNome());
+            System.out.println("Quantidade de páginas : " + liv.getValue().getPaginas());
+            System.out.println();
+        }
+    }
+
+    private void printInfoMap(Map<String, Livro> totalLivros) {
+        for (Map.Entry<String, Livro> l : totalLivros.entrySet()) {
+            System.out.println("Autor : " + l.getKey());
+            System.out.println("Título do livro : " + l.getValue().getNome());
+            System.out.println("Quantidade de páginas : " + l.getValue().getPaginas());
+            System.out.println();
+        }
+    }
+
+    private void inserirInfoMap(Map<String, Livro> l) {
+        l.put("Hawking, Stephen", new Livro("Uma Breve História do Tempo", 298));
+        l.put("Duhigg, Charles", new Livro("O Poder do Hábito", 135));
+        l.put("Hanari, Yuval Noah", new Livro("21 Lições para o Século 21", 405));
+        l.put("Oda, Eiichiro", new Livro("One Piece", 1041));
+        l.put("Miura, Kentaro", new Livro("Berserk", 381));
+    }
+}
+
+
+class Livro {
+    private String nome;
+    private Integer paginas;
+
+    public Livro(String nome, Integer paginas) {
+        this.nome = nome;
+        this.paginas = paginas;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Integer getPaginas() {
+        return paginas;
+    }
+
+    public void setPaginas(Integer paginas) {
+        this.paginas = paginas;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Livro livro = (Livro) o;
+        return Objects.equals(nome, livro.nome) && Objects.equals(paginas, livro.paginas);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, paginas);
+    }
+}
+
+class ComparatorNome implements Comparator<Map.Entry<String, Livro>> {
+
+    @Override
+    public int compare(Map.Entry<String, Livro> l1, Map.Entry<String, Livro> l2) {
+        return l1.getValue().getNome().compareToIgnoreCase(l2.getValue().getNome());
+    }
+}
+
+class ComparatorPaginas implements Comparator<Map.Entry<String, Livro>> {
+
+    @Override
+    public int compare(Map.Entry<String, Livro> l1, Map.Entry<String, Livro> l2) {
+        return Integer.compare(l1.getValue().getPaginas(), l2.getValue().getPaginas());
+    }
 }
